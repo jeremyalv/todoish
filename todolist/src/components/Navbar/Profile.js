@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Profile = (props) => {
+const Profile = ({ user }) => {
     const [open, setOpen] = React.useState(false);
     
     const handleOpen = () => {
@@ -25,8 +25,8 @@ const Profile = (props) => {
                     (   
                         <div id="menu" className="absolute list-none mt-1 mb-2 -ml-32 my-1 py-1 border border-solid border-gray z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                             <div className="mx-2 py-2 px-4 text-sm text-gray-900 bg-white dark:text-white hover:bg-gray-300">
-                                <div className='m-0 text-left'>{props.user.username}</div>
-                                <div className="m-0 text-left font-medium truncate">{props.user.email}</div>
+                                <div className='m-0 text-left'>{user.username}</div>
+                                <div className="m-0 text-left font-medium truncate">{user.email}</div>
                             </div>
                             <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
                                 <li className='my-2 bg-white hover:bg-gray-300'>

@@ -1,5 +1,7 @@
 import React from 'react';
+import Header from './Header';
 import Profile from './Profile';
+import NavbarControl from './NavbarControl';
 
 const user = {
     "username": "testuser",
@@ -8,20 +10,13 @@ const user = {
 
 const Navbar = () => {
     return (  
-        <>
-            <div>
-                <div className='flex pt-4 pb-2 px-4'>
-                    <div className='text-2xl text-orange-500 font-bold'>
-                        Todoish
-                    </div>
-                    <div className='ml-auto'>
-                        <Profile user={user} />
-                    </div>
-                </div>
-
-                {/* <div className='bg-gray-200 h-0.5'></div> */}
+        <div className='flex pt-4 pb-2 px-4 mb-2'>
+            <Header />
+            <div className='ml-auto'>
+                <Profile user={user} />
             </div>
-        </>
+            {/* <NavbarControl /> */}
+        </div>
     );
 }
  

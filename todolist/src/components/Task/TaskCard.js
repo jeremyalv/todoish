@@ -1,39 +1,48 @@
 import React from 'react';
 import Checkbox from './Checkbox';
 
-const Task = (props) => {
+const Task = ({ task }) => {
     const [finished, setFinished] = React.useState(false);
-    const today = new Date();
-    const taskDueDate = Date.parse();
 
     const handleFinished = () => {
         setFinished(!finished);
     };
     
     return (  
-        <div className='flex items-center w-full'>
+        <div className='flex items-center w-full h-20 divide-y'>
             {/* Checkbox component */}
-            <Checkbox onClick={handleFinished} checked={finished} />
+            <div className='self-start mt-4'>
+                <Checkbox onChange={handleFinished} checked={finished} />
+            </div>
             
             <div className='flex flex-row w-full'>
                 <div className='flex flex-col ml-4 mr-2 justify-start items-start'>
                     {/* Title */}
-                    <div className='text-xl'>
-                        {props.task.title}
+                    <div className='text-lg'>
+                        {task.title}
+                    </div>
+
+                    <div className='text-sm text-gray-500'>
+                        {task.description}
                     </div>
 
                     {/* Create Date */}
                     {
-                        today > props.task.created_at
+                    new Date().getTime() >= Date.parse(task.due_date)
+                        ?
+                        <div className="text-sm text-red-400">
+                            {task.due_date}
+                        </div>
+                        :
+                        <div className='text-sm text-gray-400'>
+                            {task.due_date}
+                        </div>
                     }
-                    <div className="{}">
-                        {props.task.created_at}
-                    </div>
                 </div>
 
                 {/* Category */}
-                <div className='text-gray-400 ml-auto self-end'>
-                    {props.task.category}
+                <div className='text-sm text-gray-400 ml-auto self-end'>
+                    {task.category}
                 </div>
             </div>
         </div>

@@ -1,13 +1,13 @@
 import React from 'react';
 import TaskCard from './TaskCard';
-import data from '../../data/tasks.json';
+import { tasks } from '../../data/tasks.js'; 
 
 
 const TaskFeed = () => {
     return (  
         <div className='flex flex-col items-center'>
-            {data.map(task => 
-                    <TaskCard key={task.id} task={task} />
+            {tasks.map((task, key) => 
+                    <TaskCard key={key} task={task} />
             )}
         </div>
     );

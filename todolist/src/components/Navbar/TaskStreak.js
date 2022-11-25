@@ -1,11 +1,11 @@
 import React from 'react';
 
-const SidebarCategory = () => {
+const TaskStreak = () => {
     return (  
         <>
-            
+        
         </>
     );
 }
  
-export default SidebarCategory;
+export default TaskStreak;
